@@ -16,6 +16,16 @@
 		ED885A0E271A1684001C01D5 /* IterableCoffeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED885A0D271A1684001C01D5 /* IterableCoffeeTests.swift */; };
 		ED885A18271A1684001C01D5 /* IterableCoffeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED885A17271A1684001C01D5 /* IterableCoffeeUITests.swift */; };
 		ED885A1A271A1684001C01D5 /* IterableCoffeeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED885A19271A1684001C01D5 /* IterableCoffeeUITestsLaunchTests.swift */; };
+		ED885A29271A2ED1001C01D5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED885A28271A2ED1001C01D5 /* HomeViewController.swift */; };
+		ED885A31271A3C85001C01D5 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED885A30271A3C85001C01D5 /* NotificationService.swift */; };
+		ED885A35271A3C85001C01D5 /* IterableCoffeeNS.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = ED885A2E271A3C85001C01D5 /* IterableCoffeeNS.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		ED885A3C271A3DA1001C01D5 /* IterableAppExtensions in Frameworks */ = {isa = PBXBuildFile; productRef = ED885A3B271A3DA1001C01D5 /* IterableAppExtensions */; };
+		ED885A3E271A3DA1001C01D5 /* IterableSDK in Frameworks */ = {isa = PBXBuildFile; productRef = ED885A3D271A3DA1001C01D5 /* IterableSDK */; };
+		EDF76F07272774C3006F4116 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF76F06272774C3006F4116 /* CheckoutViewController.swift */; };
+		EDF76F09272775C0006F4116 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF76F08272775C0006F4116 /* Cart.swift */; };
+		EDF76F0B27278093006F4116 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF76F0A27278093006F4116 /* DeepLinkHandler.swift */; };
+		EDF76F0D2727810A006F4116 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF76F0C2727810A006F4116 /* UIViewController+Extension.swift */; };
+		EDF76F1127289FD6006F4116 /* CoffeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF76F1027289FD6006F4116 /* CoffeeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +43,28 @@
 			remoteGlobalIDString = ED8859F2271A1682001C01D5;
 			remoteInfo = IterableCoffee;
 		};
+		ED885A33271A3C85001C01D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = ED8859EB271A1682001C01D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ED885A2D271A3C85001C01D5;
+			remoteInfo = IterableCoffeeNS;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		ED885A39271A3C85001C01D5 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				ED885A35271A3C85001C01D5 /* IterableCoffeeNS.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		ED8859F3271A1682001C01D5 /* IterableCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IterableCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -49,6 +80,16 @@
 		ED885A13271A1684001C01D5 /* IterableCoffeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IterableCoffeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED885A17271A1684001C01D5 /* IterableCoffeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IterableCoffeeUITests.swift; sourceTree = "<group>"; };
 		ED885A19271A1684001C01D5 /* IterableCoffeeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IterableCoffeeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		ED885A28271A2ED1001C01D5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		ED885A2E271A3C85001C01D5 /* IterableCoffeeNS.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = IterableCoffeeNS.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED885A30271A3C85001C01D5 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		ED885A32271A3C85001C01D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDF76F0527236D25006F4116 /* IterableCoffee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = IterableCoffee.entitlements; sourceTree = "<group>"; };
+		EDF76F06272774C3006F4116 /* CheckoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutViewController.swift; sourceTree = "<group>"; };
+		EDF76F08272775C0006F4116 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		EDF76F0A27278093006F4116 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
+		EDF76F0C2727810A006F4116 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		EDF76F1027289FD6006F4116 /* CoffeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +97,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED885A3E271A3DA1001C01D5 /* IterableSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,6 +115,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED885A2B271A3C85001C01D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED885A3C271A3DA1001C01D5 /* IterableAppExtensions in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -82,6 +132,7 @@
 				ED8859F5271A1682001C01D5 /* IterableCoffee */,
 				ED885A0C271A1684001C01D5 /* IterableCoffeeTests */,
 				ED885A16271A1684001C01D5 /* IterableCoffeeUITests */,
+				ED885A2F271A3C85001C01D5 /* IterableCoffeeNS */,
 				ED8859F4271A1682001C01D5 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -92,6 +143,7 @@
 				ED8859F3271A1682001C01D5 /* IterableCoffee.app */,
 				ED885A09271A1684001C01D5 /* IterableCoffeeTests.xctest */,
 				ED885A13271A1684001C01D5 /* IterableCoffeeUITests.xctest */,
+				ED885A2E271A3C85001C01D5 /* IterableCoffeeNS.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,10 +151,16 @@
 		ED8859F5271A1682001C01D5 /* IterableCoffee */ = {
 			isa = PBXGroup;
 			children = (
+				EDF76F0527236D25006F4116 /* IterableCoffee.entitlements */,
 				ED8859F6271A1682001C01D5 /* AppDelegate.swift */,
+				EDF76F0F27278172006F4116 /* Deep Link Handling */,
 				ED8859F8271A1682001C01D5 /* SceneDelegate.swift */,
 				ED8859FA271A1682001C01D5 /* ViewController.swift */,
 				ED8859FC271A1682001C01D5 /* Main.storyboard */,
+				EDF76F1027289FD6006F4116 /* CoffeeViewController.swift */,
+				EDF76F06272774C3006F4116 /* CheckoutViewController.swift */,
+				ED885A28271A2ED1001C01D5 /* HomeViewController.swift */,
+				EDF76F08272775C0006F4116 /* Cart.swift */,
 				ED8859FF271A1684001C01D5 /* Assets.xcassets */,
 				ED885A01271A1684001C01D5 /* LaunchScreen.storyboard */,
 				ED885A04271A1684001C01D5 /* Info.plist */,
@@ -127,6 +185,24 @@
 			path = IterableCoffeeUITests;
 			sourceTree = "<group>";
 		};
+		ED885A2F271A3C85001C01D5 /* IterableCoffeeNS */ = {
+			isa = PBXGroup;
+			children = (
+				ED885A30271A3C85001C01D5 /* NotificationService.swift */,
+				ED885A32271A3C85001C01D5 /* Info.plist */,
+			);
+			path = IterableCoffeeNS;
+			sourceTree = "<group>";
+		};
+		EDF76F0F27278172006F4116 /* Deep Link Handling */ = {
+			isa = PBXGroup;
+			children = (
+				EDF76F0A27278093006F4116 /* DeepLinkHandler.swift */,
+				EDF76F0C2727810A006F4116 /* UIViewController+Extension.swift */,
+			);
+			path = "Deep Link Handling";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,12 +213,17 @@
 				ED8859EF271A1682001C01D5 /* Sources */,
 				ED8859F0271A1682001C01D5 /* Frameworks */,
 				ED8859F1271A1682001C01D5 /* Resources */,
+				ED885A39271A3C85001C01D5 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				ED885A34271A3C85001C01D5 /* PBXTargetDependency */,
 			);
 			name = IterableCoffee;
+			packageProductDependencies = (
+				ED885A3D271A3DA1001C01D5 /* IterableSDK */,
+			);
 			productName = IterableCoffee;
 			productReference = ED8859F3271A1682001C01D5 /* IterableCoffee.app */;
 			productType = "com.apple.product-type.application";
@@ -183,6 +264,26 @@
 			productReference = ED885A13271A1684001C01D5 /* IterableCoffeeUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		ED885A2D271A3C85001C01D5 /* IterableCoffeeNS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = ED885A36271A3C85001C01D5 /* Build configuration list for PBXNativeTarget "IterableCoffeeNS" */;
+			buildPhases = (
+				ED885A2A271A3C85001C01D5 /* Sources */,
+				ED885A2B271A3C85001C01D5 /* Frameworks */,
+				ED885A2C271A3C85001C01D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = IterableCoffeeNS;
+			packageProductDependencies = (
+				ED885A3B271A3DA1001C01D5 /* IterableAppExtensions */,
+			);
+			productName = IterableCoffeeNS;
+			productReference = ED885A2E271A3C85001C01D5 /* IterableCoffeeNS.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -204,6 +305,9 @@
 						CreatedOnToolsVersion = 13.0;
 						TestTargetID = ED8859F2271A1682001C01D5;
 					};
+					ED885A2D271A3C85001C01D5 = {
+						CreatedOnToolsVersion = 13.0;
+					};
 				};
 			};
 			buildConfigurationList = ED8859EE271A1682001C01D5 /* Build configuration list for PBXProject "IterableCoffee" */;
@@ -215,6 +319,9 @@
 				Base,
 			);
 			mainGroup = ED8859EA271A1682001C01D5;
+			packageReferences = (
+				ED885A3A271A3DA1001C01D5 /* XCRemoteSwiftPackageReference "swift-sdk" */,
+			);
 			productRefGroup = ED8859F4271A1682001C01D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -222,6 +329,7 @@
 				ED8859F2271A1682001C01D5 /* IterableCoffee */,
 				ED885A08271A1684001C01D5 /* IterableCoffeeTests */,
 				ED885A12271A1684001C01D5 /* IterableCoffeeUITests */,
+				ED885A2D271A3C85001C01D5 /* IterableCoffeeNS */,
 			);
 		};
 /* End PBXProject section */
@@ -251,6 +359,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED885A2C271A3C85001C01D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -258,9 +373,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDF76F0D2727810A006F4116 /* UIViewController+Extension.swift in Sources */,
 				ED8859FB271A1682001C01D5 /* ViewController.swift in Sources */,
+				EDF76F09272775C0006F4116 /* Cart.swift in Sources */,
 				ED8859F7271A1682001C01D5 /* AppDelegate.swift in Sources */,
 				ED8859F9271A1682001C01D5 /* SceneDelegate.swift in Sources */,
+				EDF76F07272774C3006F4116 /* CheckoutViewController.swift in Sources */,
+				ED885A29271A2ED1001C01D5 /* HomeViewController.swift in Sources */,
+				EDF76F1127289FD6006F4116 /* CoffeeViewController.swift in Sources */,
+				EDF76F0B27278093006F4116 /* DeepLinkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +402,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED885A2A271A3C85001C01D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				ED885A31271A3C85001C01D5 /* NotificationService.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -293,6 +422,11 @@
 			isa = PBXTargetDependency;
 			target = ED8859F2271A1682001C01D5 /* IterableCoffee */;
 			targetProxy = ED885A14271A1684001C01D5 /* PBXContainerItemProxy */;
+		};
+		ED885A34271A3C85001C01D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = ED885A2D271A3C85001C01D5 /* IterableCoffeeNS */;
+			targetProxy = ED885A33271A3C85001C01D5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -435,8 +569,10 @@
 		ED885A1E271A1684001C01D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = IterableCoffee/IterableCoffee.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 454L9NG9J9;
@@ -452,7 +588,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ineedpizza.IterableCoffee.IterableCoffee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReiterableCoffee.IterableCoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -463,8 +599,10 @@
 		ED885A1F271A1684001C01D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = IterableCoffee/IterableCoffee.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 454L9NG9J9;
@@ -480,7 +618,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ineedpizza.IterableCoffee.IterableCoffee;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReiterableCoffee.IterableCoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -584,6 +722,56 @@
 			};
 			name = Release;
 		};
+		ED885A37271A3C85001C01D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 454L9NG9J9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IterableCoffeeNS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IterableCoffeeNS;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReiterableCoffee.IterableCoffee.IterableCoffeeNS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ED885A38271A3C85001C01D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 454L9NG9J9;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = IterableCoffeeNS/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = IterableCoffeeNS;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ReiterableCoffee.IterableCoffee.IterableCoffeeNS;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -623,7 +811,40 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		ED885A36271A3C85001C01D5 /* Build configuration list for PBXNativeTarget "IterableCoffeeNS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ED885A37271A3C85001C01D5 /* Debug */,
+				ED885A38271A3C85001C01D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ED885A3A271A3DA1001C01D5 /* XCRemoteSwiftPackageReference "swift-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/iterable/swift-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ED885A3B271A3DA1001C01D5 /* IterableAppExtensions */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED885A3A271A3DA1001C01D5 /* XCRemoteSwiftPackageReference "swift-sdk" */;
+			productName = IterableAppExtensions;
+		};
+		ED885A3D271A3DA1001C01D5 /* IterableSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ED885A3A271A3DA1001C01D5 /* XCRemoteSwiftPackageReference "swift-sdk" */;
+			productName = IterableSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ED8859EB271A1682001C01D5 /* Project object */;
 }
