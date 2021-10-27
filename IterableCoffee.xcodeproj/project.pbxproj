@@ -26,6 +26,7 @@
 		EDF76F0B27278093006F4116 /* DeepLinkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF76F0A27278093006F4116 /* DeepLinkHandler.swift */; };
 		EDF76F0D2727810A006F4116 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF76F0C2727810A006F4116 /* UIViewController+Extension.swift */; };
 		EDF76F1127289FD6006F4116 /* CoffeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF76F1027289FD6006F4116 /* CoffeeViewController.swift */; };
+		EDF76F132729EF70006F4116 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDF76F122729EF70006F4116 /* SignupViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +91,7 @@
 		EDF76F0A27278093006F4116 /* DeepLinkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkHandler.swift; sourceTree = "<group>"; };
 		EDF76F0C2727810A006F4116 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		EDF76F1027289FD6006F4116 /* CoffeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeViewController.swift; sourceTree = "<group>"; };
+		EDF76F122729EF70006F4116 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				ED8859F8271A1682001C01D5 /* SceneDelegate.swift */,
 				ED8859FA271A1682001C01D5 /* ViewController.swift */,
 				ED8859FC271A1682001C01D5 /* Main.storyboard */,
+				EDF76F122729EF70006F4116 /* SignupViewController.swift */,
 				EDF76F1027289FD6006F4116 /* CoffeeViewController.swift */,
 				EDF76F06272774C3006F4116 /* CheckoutViewController.swift */,
 				ED885A28271A2ED1001C01D5 /* HomeViewController.swift */,
@@ -375,6 +378,7 @@
 			files = (
 				EDF76F0D2727810A006F4116 /* UIViewController+Extension.swift in Sources */,
 				ED8859FB271A1682001C01D5 /* ViewController.swift in Sources */,
+				EDF76F132729EF70006F4116 /* SignupViewController.swift in Sources */,
 				EDF76F09272775C0006F4116 /* Cart.swift in Sources */,
 				ED8859F7271A1682001C01D5 /* AppDelegate.swift in Sources */,
 				ED8859F9271A1682001C01D5 /* SceneDelegate.swift in Sources */,

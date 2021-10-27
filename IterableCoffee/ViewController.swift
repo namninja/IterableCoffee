@@ -15,36 +15,21 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBOutlet weak var emailField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
+    var emailCaptured: String = ""
+    var pwCaptured: String = ""
+    
     @IBAction func loginCompletedTest(_ sender: UIButton) {
+        emailCaptured = emailField.text?.lowercased() ?? "nam.ngo+iosapp3@iterable.com"
+        pwCaptured = passwordField.text ?? "demo"
+        
         print("Login Successful")
-        IterableAPI.email = "nam.ngo+iosapp3@iterable.com"
+        IterableAPI.email = emailCaptured
         IterableAPI.track(
             event: "login successful"
         )
     }
-    @IBAction func newUserTest(_ sender: UIButton) {
-        print("New User Created Successful")
-        
-        IterableAPI.email = "nam.ngo+iosapp3@iterable.com"
-        IterableAPI.updateUser([
-            "firstName": "David",
-            "lastName" : "Bowie",
-            "age" : 45,
-            "favoriteCafeBeverage": "latte",
-            "phoneNumber": "+18582294679"
-        ], mergeNestedObjects: false)
-                               
-            IterableAPI.track(
-            event: "signup complete",
-            dataFields: [
-                "firstName": "David",
-                "lastName" : "Bowie",
-                "age" : 45,
-                "favoriteCafeBeverage": "latte",
-                "phoneNumber": "+18582294679"
-                        ]
-        )
-    }
+    
 }
 
