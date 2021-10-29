@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="95.652173913043484" y="83.705357142857139"/>
         </scene>
-        <!--Coffee-->
+        <!--CoffeeViewController-->
         <scene sceneID="2mG-yV-e2c">
             <objects>
-                <viewController storyboardIdentifier="coffee" title="Coffee" id="pVz-kP-6ys" customClass="CoffeeViewController" customModule="IterableCoffee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CoffeeViewController" title="CoffeeViewController" id="pVz-kP-6ys" customClass="CoffeeViewController" customModule="IterableCoffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IRQ-NG-DAZ">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,7 +313,7 @@
         <!--Menu-->
         <scene sceneID="cXj-5S-Yyh">
             <objects>
-                <viewController title="Menu" id="PDC-3l-sYa" customClass="HomeViewController" customModule="IterableCoffee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="coffee" title="Menu" id="PDC-3l-sYa" customClass="HomeViewController" customModule="IterableCoffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tTq-cv-3Ly">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -770,7 +770,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="NJw-Zv-EEx"/>
+        <segue reference="3vF-uI-vIz"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="coffee-logo" width="341.33334350585938" height="341.33334350585938"/>

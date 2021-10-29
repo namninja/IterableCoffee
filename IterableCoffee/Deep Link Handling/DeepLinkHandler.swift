@@ -79,7 +79,7 @@ struct DeepLinkHandler {
                 return .latte
             case "cappuccino":
                 return .cappuccino
-            case "black":
+            case "coffee":
                 return .coffee
 //            case "coffee":
 //                return parseCoffeeList(fromUrl: url)

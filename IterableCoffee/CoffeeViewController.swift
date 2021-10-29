@@ -9,10 +9,12 @@ import UIKit
 import IterableSDK
 
 class CoffeeViewController: UIViewController, StoryboardInstantiable {
-    public var coffee : CoffeeType?
-    
     static var storyboardName: String  = "Main"
     static var storyboardId: String = "CoffeeViewController"
+    
+    
+    public var coffee : CoffeeType?
+    
    
 
     override func viewDidLoad() {
