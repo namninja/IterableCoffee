@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 import IterableSDK
 
 struct DeepLinkHandler {
@@ -42,22 +43,37 @@ struct DeepLinkHandler {
 //        }
 //    }
     private static func show(coffee: CoffeeType) {
-        
+//        print("here------------------>",window)
         let coffeeVC = CoffeeViewController.createFromStoryboard()
         coffeeVC.coffee = coffee
+        //print("here------------------>",UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController )
+//        guard let delegate = UIApplication.shared.delegate,
+//                   let window = delegate.window,
+//                   //let tabBarController = window?.rootViewController as? UITabBarController,
+//              let rootNav = window?.rootViewController as? UINavigationController else {
+//                    return
+//                }
+//        if let CoffeeViewController = UIStoryboard(name: "Main", bundle: nil)
+//                   .instantiateViewController(identifier: "CoffeeViewController") as? CoffeeViewController {
+//                   CoffeeViewController.coffee = coffee
+//                   rootNav.popToRootViewController(animated: false)
+//                   rootNav.pushViewController(CoffeeViewController, animated: true)
+//               }
+        
+//        if let rootNav = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController {
         if let rootNav = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController {
-            
+
             rootNav.popToRootViewController(animated: false)
             rootNav.pushViewController(coffeeVC, animated: true)
         }
     }
     
-    private static func showCoffeeList(query: String?) {
-        if let rootNav = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController {
-            rootNav.popToRootViewController(animated: true)
-            
-        }
-    }
+//    private static func showCoffeeList(query: String?) {
+//        if let rootNav = UIApplication.shared.delegate?.window??.rootViewController as? UINavigationController {
+//            rootNav.popToRootViewController(animated: true)
+//
+//        }
+//    }
     
     // This enum helps with parsing of Deeplinks.
     // Given a URL this enum will return a Deeplink.

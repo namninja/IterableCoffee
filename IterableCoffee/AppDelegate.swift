@@ -6,19 +6,13 @@
 //
 
 import UIKit
+import UserNotifications
 import Foundation
 import IterableSDK
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
-    
-    // MARK: IterableURLDelegate
-    func handle(iterableURL url: URL, inContext context: IterableActionContext) -> Bool {
-        // return true if we handled the url
-        DeepLinkHandler.handle(url: url)
-    }
-    
-    
+    var window: UIWindow?
     
 
 
@@ -29,13 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
         // ITBL: Setup Notification
         setupNotifications()
         let config = IterableConfig()
-//        config.customActionDelegate = self
+        config.customActionDelegate = self
         config.urlDelegate = self
         config.inAppDisplayInterval = 1
         
         IterableAPI.initialize(apiKey: "96ffdb17e4fd4f9f8de53edba8516b0c", launchOptions: launchOptions, config: config)
         return true
     }
+    
     private func application(_ application: UIApplication,
                      continue userActivity: NSUserActivity,
                      restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
@@ -70,16 +65,40 @@ class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
         IterableAppIntegration.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
     }
     
-    // MARK: Deep link
     
+//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+//            IterableAPI.handle(universalLink: url)
+//            return true
+//        }
+//
+//        func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+//            guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+//                let url = userActivity.webpageURL else {
+//                  return true
+//            }
+//            IterableAPI.handle(universalLink: url)
+//            return true
+//        }
+    
+    // MARK: Deep link
+
     func application(_: UIApplication, continue userActivity: NSUserActivity, restorationHandler _: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         guard let url = userActivity.webpageURL else {
             return false
         }
-        
+
         // ITBL:
         return IterableAPI.handle(universalLink: url)
     }
+    
+    // MARK: IterableURLDelegate
+    func handle(iterableURL url: URL, inContext context: IterableActionContext) -> Bool {
+        // return true if we handled the url
+        DeepLinkHandler.handle(url: url)
+    }
+    
+    
+    
     
     // MARK: Notification
     
@@ -132,17 +151,17 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
 
 //// MARK: IterableCustomActionDelegate
-//
-//extension AppDelegate: IterableCustomActionDelegate {
-//    // handle the cutom action from push
-//    // return value true/false doesn't matter here, stored for future use
-//    func handle(iterableCustomAction action: IterableAction, inContext _: IterableActionContext) -> Bool {
-//        if action.type == "handleFindCoffee" {
-//            if let query = action.userInput {
-//                return DeepLinkHandler.handle(url: URL(string: "https://majumder.me/coffee?q=\(query)")!)
-//            }
-//        }
-//        return false
-//    }
-//}
+
+extension AppDelegate: IterableCustomActionDelegate {
+    // handle the cutom action from push
+    // return value true/false doesn't matter here, stored for future use
+    func handle(iterableCustomAction action: IterableAction, inContext _: IterableActionContext) -> Bool {
+        if action.type == "handleFindCoffee" {
+            if let query = action.userInput {
+                return DeepLinkHandler.handle(url: URL(string: "https://majumder.me/coffee?q=\(query)")!)
+            }
+        }
+        return false
+    }
+}
 

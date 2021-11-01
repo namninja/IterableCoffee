@@ -1,4 +1,4 @@
-//
+ //
 //  HomeViewController.swift
 //  IterableCoffee
 //
@@ -37,7 +37,7 @@ class HomeViewController: UIViewController {
             coffeeType = CoffeeType.coffee
         }
         
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "coffee") as? CoffeeViewController {
+        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "CoffeeViewController") as? CoffeeViewController {
             viewController.coffee = coffeeType
             self.present(viewController, animated: true, completion: nil)
             
