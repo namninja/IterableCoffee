@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		ED8859F7271A1682001C01D5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8859F6271A1682001C01D5 /* AppDelegate.swift */; };
-		ED8859F9271A1682001C01D5 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8859F8271A1682001C01D5 /* SceneDelegate.swift */; };
 		ED8859FB271A1682001C01D5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED8859FA271A1682001C01D5 /* ViewController.swift */; };
 		ED8859FE271A1682001C01D5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED8859FC271A1682001C01D5 /* Main.storyboard */; };
 		ED885A00271A1684001C01D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED8859FF271A1684001C01D5 /* Assets.xcassets */; };
@@ -70,7 +69,6 @@
 /* Begin PBXFileReference section */
 		ED8859F3271A1682001C01D5 /* IterableCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IterableCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED8859F6271A1682001C01D5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		ED8859F8271A1682001C01D5 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		ED8859FA271A1682001C01D5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		ED8859FD271A1682001C01D5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		ED8859FF271A1684001C01D5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 				EDF76F0527236D25006F4116 /* IterableCoffee.entitlements */,
 				ED8859F6271A1682001C01D5 /* AppDelegate.swift */,
 				EDF76F0F27278172006F4116 /* Deep Link Handling */,
-				ED8859F8271A1682001C01D5 /* SceneDelegate.swift */,
 				ED8859FA271A1682001C01D5 /* ViewController.swift */,
 				ED8859FC271A1682001C01D5 /* Main.storyboard */,
 				EDF76F122729EF70006F4116 /* SignupViewController.swift */,
@@ -381,7 +378,6 @@
 				EDF76F132729EF70006F4116 /* SignupViewController.swift in Sources */,
 				EDF76F09272775C0006F4116 /* Cart.swift in Sources */,
 				ED8859F7271A1682001C01D5 /* AppDelegate.swift in Sources */,
-				ED8859F9271A1682001C01D5 /* SceneDelegate.swift in Sources */,
 				EDF76F07272774C3006F4116 /* CheckoutViewController.swift in Sources */,
 				ED885A29271A2ED1001C01D5 /* HomeViewController.swift in Sources */,
 				EDF76F1127289FD6006F4116 /* CoffeeViewController.swift in Sources */,
