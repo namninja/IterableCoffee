@@ -54,6 +54,10 @@ class HomeViewController: UIViewController {
   
     
     
+    @IBAction func logout(_ sender: UIButton) {
+        IterableAPI.disableDeviceForCurrentUser()
+    }
+    
     @IBAction func checkout(_ sender: UIButton) {
         
     }

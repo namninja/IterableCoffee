@@ -44,7 +44,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
        return IterableAPI.handle(universalLink: url)
     }
 
-    
+    func applicationWillEnterForeground(_ application: UIApplication) {
+        setupNotifications();
+    }
     // MARK: UISceneSession Lifecycle
 
 //    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

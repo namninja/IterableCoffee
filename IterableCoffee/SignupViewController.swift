@@ -22,38 +22,38 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var beverageField: UITextField!
     
-    var emailCaptured: String = "nam.ngo+iosapp4@iterable.com"
+    var emailCaptured: String = "nam.ngo+ios5@iterable.com"
     var pwCaptured: String = "demo"
-    var firstNameCaptured: String = "Peter"
-    var lastNameCaptured: String = "Parker"
+    var firstNameCaptured: String = "Steve"
+    var lastNameCaptured: String = "Rogers"
     var phoneCaptured: String = "+18582294679"
-    var beverageCaptured: String = "mocha"
+    var beverageCaptured: String = "latte"
     
     @IBAction func signUpSubmit(_ sender: UIButton) {
-        emailCaptured = emailField.text?.lowercased() ?? "nam.ngo+iosapp4@iterable.com"
+        emailCaptured = emailField.text?.lowercased() ?? "nam.ngo+ios5@iterable.com"
         pwCaptured = passwordField.text ?? "demo"
-        firstNameCaptured = firstNameField.text ?? "Peter"
-        lastNameCaptured = lastNameField.text ?? "Parker"
+        firstNameCaptured = firstNameField.text ?? "Steve"
+        lastNameCaptured = lastNameField.text ?? "Rogers"
         phoneCaptured = phoneField.text ?? "+18582294679"
-        beverageCaptured = beverageField.text?.lowercased() ?? "mocha"
+        beverageCaptured = beverageField.text?.lowercased() ?? "latte"
         
         if (emailCaptured.isEmpty) {
-            emailCaptured = "nam.ngo+iosapp4@iterable.com"
+            emailCaptured = "nam.ngo+ios5@iterable.com"
         }
         if (pwCaptured.isEmpty) {
             pwCaptured = "demo"
         }
         if (firstNameCaptured.isEmpty) {
-            firstNameCaptured = "Peter"
+            firstNameCaptured = "Steve"
         }
         if (lastNameCaptured.isEmpty) {
-            lastNameCaptured = "Parker"
+            lastNameCaptured = "Rogers"
         }
         if (phoneCaptured.isEmpty) {
             phoneCaptured = "+18582294679"
         }
         if (beverageCaptured.isEmpty) {
-            beverageCaptured = "mocha"
+            beverageCaptured = "latte"
         }
         
         let dataFields = [
@@ -72,6 +72,7 @@ class SignupViewController: UIViewController {
             event: "signup complete",
             dataFields: dataFields
         )
+        
        
     }
     
