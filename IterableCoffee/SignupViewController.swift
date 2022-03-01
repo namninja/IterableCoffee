@@ -22,7 +22,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var beverageField: UITextField!
     
-    var emailCaptured: String = "nam.ngo+ios5@iterable.com"
+    var emailCaptured: String = "nam.ngo+ios6@iterable.com"
     var pwCaptured: String = "demo"
     var firstNameCaptured: String = "Steve"
     var lastNameCaptured: String = "Rogers"
@@ -30,7 +30,7 @@ class SignupViewController: UIViewController {
     var beverageCaptured: String = "latte"
     
     @IBAction func signUpSubmit(_ sender: UIButton) {
-        emailCaptured = emailField.text?.lowercased() ?? "nam.ngo+ios5@iterable.com"
+        emailCaptured = emailField.text?.lowercased() ?? "nam.ngo+ios6@iterable.com"
         pwCaptured = passwordField.text ?? "demo"
         firstNameCaptured = firstNameField.text ?? "Steve"
         lastNameCaptured = lastNameField.text ?? "Rogers"
@@ -38,7 +38,7 @@ class SignupViewController: UIViewController {
         beverageCaptured = beverageField.text?.lowercased() ?? "latte"
         
         if (emailCaptured.isEmpty) {
-            emailCaptured = "nam.ngo+ios5@iterable.com"
+            emailCaptured = "nam.ngo+ios6@iterable.com"
         }
         if (pwCaptured.isEmpty) {
             pwCaptured = "demo"

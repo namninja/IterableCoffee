@@ -101,7 +101,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
     
     
     
-    
     // MARK: Notification
     
     // ITBL:
@@ -110,7 +109,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
     }
     
     func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError _: Error) {}
-    
     // ITBL:
     // Ask for permission for notifications etc.
     // setup self as delegate to listen to push notifications.

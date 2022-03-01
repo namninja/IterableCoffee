@@ -18,15 +18,15 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    var emailCaptured: String = "nam.ngo+ios5@iterable.com"
+    var emailCaptured: String = "nam.ngo+ios6@iterable.com"
     var pwCaptured: String = "demo"
     
     @IBAction func loginCompletedTest(_ sender: UIButton) {
-        emailCaptured = emailField.text?.lowercased() ?? "nam.ngo+ios5@iterable.com"
+        emailCaptured = emailField.text?.lowercased() ?? "nam.ngo+ios6@iterable.com"
         pwCaptured = passwordField.text ?? "demo"
         
         if (emailCaptured.isEmpty) {
-            emailCaptured = "nam.ngo+ios5@iterable.com"
+            emailCaptured = "nam.ngo+ios6@iterable.com"
         }
         if pwCaptured.isEmpty {
             pwCaptured = "demo"
