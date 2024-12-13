@@ -10,37 +10,45 @@ import IterableSDK
 
 class SignupViewController: UIViewController {
 
-    
+    let user = TestUser.iterableUser
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     @IBOutlet weak var firstNameField: UITextField!
     @IBOutlet weak var lastNameField: UITextField!
     @IBOutlet weak var phoneField: UITextField!
     @IBOutlet weak var beverageField: UITextField!
+    
     @IBOutlet weak var signupSubmitBtn: UIButton!
     
-    //Call the User class and store test data to Identify the user in the App and create a User in Iterable
-    let user = TestData.testData
-    var emailCaptured: String = TestData.testData.email
-    var pwCaptured: String = TestData.testData.password
-    var firstNameCaptured: String = TestData.testData.firstName
-    var lastNameCaptured: String = TestData.testData.lastName
-    var phoneCaptured: String = TestData.testData.phoneNumber
-    var beverageCaptured: String = TestData.testData.favoriteBeverage
+    var emailCaptured: String = TestUser.iterableUser.email
+    var pwCaptured: String = TestUser.iterableUser.password
+    var firstNameCaptured: String = TestUser.iterableUser.firstName
+    var lastNameCaptured: String = TestUser.iterableUser.lastName
+    var phoneCaptured: String = TestUser.iterableUser.phoneNumber
+    var beverageCaptured: String = TestUser.iterableUser.favoriteBeverage
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initializeHideKeyboard()
         // Add the button press effect here
-        setupButtonEffects()
+        signupSubmitBtn.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
+        signupSubmitBtn.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
+    }
+    // Button press effect: Scale down when pressed
+    @objc func buttonTouchDown(sender: UIButton) {
+        UIView.animate(withDuration: 0.1, animations: {
+            sender.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
+        })
     }
     
-    // MARK: Signup User
-    //If you fill out the Sign Up Form, the values entered will replace the default test data and will be passed into Iterable
-    //You can skip entering in custom values by clicking the Submit button.  This will use the default user values in User.swift
+    // Button press effect: Scale back to normal when released
+    @objc func buttonTouchUp(sender: UIButton) {
+        UIView.animate(withDuration: 0.1, animations: {
+            sender.transform = CGAffineTransform.identity
+        })
+    }
     @IBAction func signUpSubmit(_ sender: UIButton) {
-        
-        
+        // Email field
             if let emailText = emailField.text, !emailText.isEmpty {
                 emailCaptured = emailText.lowercased()
             } else {
@@ -90,41 +98,27 @@ class SignupViewController: UIViewController {
             "isRegisteredUser": phoneCaptured,
             
         ]
-
+//        let dataFields : [String: Any] = [
+//                        "firstName": "Nam",
+//                        "isRegisteredUser": true,
+//                        "TC_User_Test_Key": "Iterable_US_PS"
+//                    ]
         print("New User Created Successful")
         print(dataFields)
-        
-        //Identify the User
         IterableAPI.setEmail(emailCaptured)
-        
-        //Update the User Profile
         IterableAPI.updateUser(dataFields, mergeNestedObjects: false)
+
+            IterableAPI.track(
+            event: "signup complete",
+            dataFields: dataFields
+        )
         
-        //track a custom event
-        IterableAPI.track(event: "signup complete", dataFields: dataFields)
         
-    }
-    // MARK: Button Effects
-    func setupButtonEffects() {
-        signupSubmitBtn.addTarget(self, action: #selector(buttonTouchDown), for: .touchDown)
-        signupSubmitBtn.addTarget(self, action: #selector(buttonTouchUp), for: [.touchUpInside, .touchUpOutside])
+       
     }
     
-    // Button press effect: Scale down when pressed
-    @objc func buttonTouchDown(sender: UIButton) {
-        UIView.animate(withDuration: 0.1, animations: {
-            sender.transform = CGAffineTransform(scaleX: 0.95, y: 0.95)
-        })
-    }
     
-    // Button press effect: Scale back to normal when released
-    @objc func buttonTouchUp(sender: UIButton) {
-        UIView.animate(withDuration: 0.1, animations: {
-            sender.transform = CGAffineTransform.identity
-        })
-    }
-    // MARK: - Utility - Remove Keyboard
-    // Removes Keyboard when clicking done or tapping outside of it
+    
      func initializeHideKeyboard(){
          //Declare a Tap Gesture Recognizer which will trigger our dismissMyKeyboard() function
          let tap: UITapGestureRecognizer = UITapGestureRecognizer(

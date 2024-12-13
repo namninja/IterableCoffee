@@ -9,10 +9,13 @@ import UIKit
 import UserNotifications
 import Foundation
 import IterableSDK
-
+var TOKEN: Data?
+let apiKey = TestData.testData
 @main
+
 class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
     var window: UIWindow?
+    
     
 
 
@@ -21,13 +24,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
         // Override point for customization after application launch.
         //init ITBL SDK
         // ITBL: Setup Notification
-        setupNotifications()
+        setupNotifications()       
+        
         let config = IterableConfig()
+        //config.inAppDelegate = YourCustomInAppDelegate()
+        config.logDelegate = AllLogDelegate()
         config.customActionDelegate = self
         config.urlDelegate = self
-        config.inAppDisplayInterval = 1
+        //config.inAppDisplayInterval = 1
+        config.enableEmbeddedMessaging = true
+        config.allowedProtocols = ["reiterablecoffee"]
+//      config.autoPushRegistration = false
         
-        IterableAPI.initialize(apiKey: "96ffdb17e4fd4f9f8de53edba8516b0c", launchOptions: launchOptions, config: config)
+        
+        IterableAPI.initialize(apiKey: apiKey.iterableAPIKey, launchOptions: launchOptions, config: config)
         return true
     }
     
@@ -64,23 +74,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
     // MARK: Silent Push for in-app
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
         IterableAppIntegration.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
+        
     }
     
     
-//    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-//            IterableAPI.handle(universalLink: url)
-//            return true
-//        }
-//
-//        func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-//            guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
-//                let url = userActivity.webpageURL else {
-//                  return true
-//            }
-//            IterableAPI.handle(universalLink: url)
-//            return true
-//        }
     
     // MARK: Deep link
 
@@ -88,15 +87,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
         guard let url = userActivity.webpageURL else {
             return false
         }
-
         // ITBL:
         return IterableAPI.handle(universalLink: url)
     }
-    
+
     // MARK: IterableURLDelegate
     func handle(iterableURL url: URL, inContext context: IterableActionContext) -> Bool {
         // return true if we handled the url
-        DeepLinkHandler.handle(url: url)
+        return DeepLinkHandler.handle(url: url)
     }
     
     
@@ -105,7 +103,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
     
     // ITBL:
     func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let deviceTokenString = deviceToken.reduce("", { $0 + String(format: "%02X", $1) })
+                print("Device Token: \(deviceTokenString)")
         IterableAPI.register(token: deviceToken)
+        
     }
     
     func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError _: Error) {}
@@ -135,22 +136,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
     }
 }
 
+
 // MARK: UNUserNotificationCenterDelegate
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
-    public func userNotificationCenter(_: UNUserNotificationCenter, willPresent _: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.banner, .badge, .sound])
-    }
+    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            // Handle the notification presentation while the app is in the foreground
+            completionHandler([.banner, .badge, .sound])
+            let userInfo = notification.request.content.userInfo
+            print("Notification Payload (Foreground): \(userInfo)")
+        print("here2")
+        print(UIApplication.shared.applicationIconBadgeNumber)
+        }
     
     // The method will be called on the delegate when the user responded to the notification by opening the application, dismissing the notification or choosing a UNNotificationAction. The delegate must be set before the application returns from applicationDidFinishLaunching:.
     public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+                print("Notification Response Payload: \(userInfo)")
         // ITBL:
         IterableAppIntegration.userNotificationCenter(center, didReceive: response, withCompletionHandler: completionHandler)
     }
 }
 
 
-//// MARK: IterableCustomActionDelegate
+// MARK: IterableCustomActionDelegate
 
 extension AppDelegate: IterableCustomActionDelegate {
     // handle the cutom action from push
@@ -164,4 +173,41 @@ extension AppDelegate: IterableCustomActionDelegate {
         return false
     }
 }
+class YourCustomInAppDelegate: IterableInAppDelegate {
+    func onNew(message: IterableInAppMessage) -> InAppShowResponse {
+        print("IterableHelper")
+        let messages = IterableAPI.inAppManager.getMessages()
+        
+        if messages.isEmpty {
+            print("there are no messages")
+            return .skip
+        } else {
+            print("perform logic")
+            // Show an in-app message
+            return .show
+        }
+    }
+}
 
+
+//extension AppDelegate: IterableInAppDelegate {
+//
+//    public func onNew(message: IterableInAppMessage) -> InAppShowResponse {
+//
+//        // TODO: This never gets called for those custom json payload in-app messages
+//
+//        if let customPayload = message.customPayload as? [String: Any] {
+//
+//            print("IterableHelper onNew(message):\n\(message)")
+//
+//            return .skip
+//
+//        } else {
+//
+//            return .show
+//
+//        }
+//
+//    }
+//
+//}

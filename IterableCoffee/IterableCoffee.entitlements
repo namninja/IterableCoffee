@@ -8,6 +8,8 @@
 	<array>
 		<string>applinks:www.reiterablecoffee.com</string>
 		<string>applinks:links.reiterablecoffee.com</string>
+		<string>applinks:l.reiterablecoffee.com</string>
+		<string>applinks:punkrock.reiterablecoffee.com</string>
 	</array>
 	<key>com.apple.developer.usernotifications.time-sensitive</key>
 	<true/>

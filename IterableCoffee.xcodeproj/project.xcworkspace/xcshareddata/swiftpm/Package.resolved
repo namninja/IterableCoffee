@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "IterableSDK",
-        "repositoryURL": "https://github.com/iterable/swift-sdk",
-        "state": {
-          "branch": null,
-          "revision": "366bd457dd400b5742686635236c0d8b5a301e6d",
-          "version": "6.3.3"
-        }
+  "pins" : [
+    {
+      "identity" : "swift-sdk",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/iterable/swift-sdk",
+      "state" : {
+        "revision" : "89a68e92a6ff389644bf6b6b08f77f41201a4b47",
+        "version" : "6.5.7"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }
