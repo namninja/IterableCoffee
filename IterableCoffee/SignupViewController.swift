@@ -102,7 +102,7 @@ class SignupViewController: UIViewController {
         
         //track a custom event
         IterableAPI.track(event: "signup complete", dataFields: dataFields)
-        
+        IterableAPI.inAppManager.getInboxMessages()
     }
     // MARK: Button Effects
     func setupButtonEffects() {

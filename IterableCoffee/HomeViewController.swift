@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, IterableEmbeddedUpdateDelegate {
     // MARK: Mobile Inbox
     @IBAction func showInbox(_ sender: UIButton) {
         // Fetch inbox messages
-            let inboxMessages = IterableAPI.inAppManager.getInboxMessages()
+        let inboxMessages = IterableAPI.inAppManager.getInboxMessages()
             
             // Log the number of messages for debugging
             print("Number of inbox messages: \(inboxMessages.count)")
@@ -34,6 +34,7 @@ class HomeViewController: UIViewController, IterableEmbeddedUpdateDelegate {
             inboxViewController.navTitle = "Your Inbox"
             inboxViewController.noMessagesTitle = "No Messages"
             inboxViewController.noMessagesBody = "You have no new messages. Check back later!"
+           
 
             present(inboxViewController, animated: true, completion: nil)
     }
