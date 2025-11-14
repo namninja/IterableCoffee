@@ -1,6 +1,9 @@
 # Sample iOS App
 
-Welcome to the **Sample iOS App** repository! This app demonstrates basic functionality and integration with Iterable SDK. Follow the instructions below to get started.
+Welcome to the **Sample iOS App** repository! This app demonstrates basic functionality and integration with Iterable SDK. Follow the instructions below to get started.  
+
+Update:
+Added the ability to switch between two projects labeled Email or Hybrid, but effectively can be treated as Sandbox or Prod projects
 
 ---
 
@@ -37,7 +40,14 @@ public struct TestData {
     let favoriteBeverage: String
     let firstName: String
     let lastName: String
-    let iterableAPIKey: String
+    let iterableAPIKeyEmail: String
+    let iterableAPIKeyHybrid: String
+    
+    // Helper computed property to get the current API key based on selection
+    var iterableAPIKey: String {
+        let selectedProject = UserDefaults.standard.string(forKey: "selectedIterableProject") ?? "Email"
+        return selectedProject == "Hybrid" ? iterableAPIKeyHybrid : iterableAPIKeyEmail
+    }
 
     static let testData = TestData(
         email: "<Replace with Test Email>",
@@ -46,7 +56,8 @@ public struct TestData {
         favoriteBeverage: "mocha",
         firstName: "Thor",
         lastName: "Odinson",
-        iterableAPIKey: "<Iterable API Key>"
+        iterableAPIKeyEmail: "<Iterable API Key>",
+        iterableAPIKeyHybrid: "<Iterable API Key for another project>"
     )
 }
 ```

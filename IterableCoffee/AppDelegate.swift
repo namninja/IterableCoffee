@@ -1,290 +1,4 @@
-////
-////  AppDelegate.swift
-////  IterableCoffee
-////
-////  Created by Nam Ngo on 10/15/21.
-////
-//
-//import UIKit
-//import UserNotifications
-//import Foundation
-//import IterableSDK
-//@preconcurrency import WebKit
-//var TOKEN: Data?
-//let apiKey = TestData.testData
-//@main
-//
-//class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
-//    var window: UIWindow?
-//    
-//    
-//
-//
-//
-//    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//        // Override point for customization after application launch.
-//        //init ITBL SDK
-//        // ITBL: Setup Notification
-//        setupNotifications()       
-//        
-//        let config = IterableConfig()
-//        
-//        config.inAppDelegate = YourCustomInAppDelegate()
-//        config.logDelegate = AllLogDelegate()
-//        config.customActionDelegate = self
-//        config.urlDelegate = self
-//        //config.inAppDisplayInterval = 1
-//        config.enableEmbeddedMessaging = true
-//        config.allowedProtocols = ["reiterablecoffee"]
-////      config.autoPushRegistration = false
-//        
-//        
-//        IterableAPI.initialize(apiKey: apiKey.iterableAPIKey, launchOptions: launchOptions, config: config)
-//        return true
-//    }
-//    
-//    private func application(_ application: UIApplication,
-//                     continue userActivity: NSUserActivity,
-//                     restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-//
-//       guard let url = userActivity.webpageURL else {
-//          return false
-//       }
-//        print("here------>", url)
-//       // This tracks the click, retrieves the original URL, and uses it to
-//       // call handleIterableURL:context:
-//       return IterableAPI.handle(universalLink: url)
-//    }
-//
-//    func applicationWillEnterForeground(_ application: UIApplication) {
-//        setupNotifications();
-//    }
-//    // MARK: UISceneSession Lifecycle
-//
-////    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-////        // Called when a new scene session is being created.
-////        // Use this method to select a configuration to create the new scene with.
-////        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
-////    }
-////
-////    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-////        // Called when the user discards a scene session.
-////        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-////        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-////    }
-//
-//    // MARK: Silent Push for in-app
-//    
-//    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-//        
-//        IterableAppIntegration.application(application, didReceiveRemoteNotification: userInfo, fetchCompletionHandler: completionHandler)
-//        
-//    }
-//    
-//    
-//    
-//    // MARK: Deep link
-//
-//    func application(_: UIApplication, continue userActivity: NSUserActivity, restorationHandler _: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
-//        guard let url = userActivity.webpageURL else {
-//            return false
-//        }
-//        // ITBL:
-//        return IterableAPI.handle(universalLink: url)
-//    }
-//
-//    // MARK: IterableURLDelegate
-//    func handle(iterableURL url: URL, inContext context: IterableActionContext) -> Bool {
-//        // return true if we handled the url
-//        return DeepLinkHandler.handle(url: url)
-//    }
-//    
-//    
-//    
-//    // MARK: Notification
-//    
-//    // ITBL:
-//    func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-//        let deviceTokenString = deviceToken.reduce("", { $0 + String(format: "%02X", $1) })
-//                print("Device Token: \(deviceTokenString)")
-//        IterableAPI.register(token: deviceToken)
-//        
-//    }
-//    
-//    func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError _: Error) {}
-//    // ITBL:
-//    // Ask for permission for notifications etc.
-//    // setup self as delegate to listen to push notifications.
-//    private func setupNotifications() {
-//        UNUserNotificationCenter.current().delegate = self
-//        UNUserNotificationCenter.current().getNotificationSettings { settings in
-//            if settings.authorizationStatus != .authorized {
-//                // not authorized, ask for permission
-//                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, _ in
-//                    if success {
-//                        DispatchQueue.main.async {
-//                            UIApplication.shared.registerForRemoteNotifications()
-//                        }
-//                    }
-//                    // TODO: Handle error etc.
-//                }
-//            } else {
-//                // already authorized
-//                DispatchQueue.main.async {
-//                    UIApplication.shared.registerForRemoteNotifications()
-//                }
-//            }
-//        }
-//    }
-//}
-//
-//
-//// MARK: UNUserNotificationCenterDelegate
-//
-//extension AppDelegate: UNUserNotificationCenterDelegate {
-//    public func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-//            // Handle the notification presentation while the app is in the foreground
-//            completionHandler([.banner, .badge, .sound])
-//            let userInfo = notification.request.content.userInfo
-//            print("Notification Payload (Foreground): \(userInfo)")
-//        print("here2")
-//        print(UIApplication.shared.applicationIconBadgeNumber)
-//        }
-//    
-//    // The method will be called on the delegate when the user responded to the notification by opening the application, dismissing the notification or choosing a UNNotificationAction. The delegate must be set before the application returns from applicationDidFinishLaunching:.
-//    public func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-//        let userInfo = response.notification.request.content.userInfo
-//                print("Notification Response Payload: \(userInfo)")
-//        // ITBL:
-//        IterableAppIntegration.userNotificationCenter(center, didReceive: response, withCompletionHandler: completionHandler)
-//    }
-//}
-//
-//
-//// MARK: IterableCustomActionDelegate
-//
-//extension AppDelegate: IterableCustomActionDelegate {
-//    // handle the cutom action from push
-//    // return value true/false doesn't matter here, stored for future use
-//    func handle(iterableCustomAction action: IterableAction, inContext _: IterableActionContext) -> Bool {
-//        if action.type == "handleFindCoffee" {
-//            if let query = action.userInput {
-//                return DeepLinkHandler.handle(url: URL(string: "https://majumder.me/coffee?q=\(query)")!)
-//            }
-//        }
-//        return false
-//    }
-//}
-//extension UIApplication {
-//    func topViewController(base: UIViewController? = nil) -> UIViewController? {
-//        // Ensure we're on the main thread
-//        if !Thread.isMainThread {
-//            print("Warning: topViewController called off the main thread.")
-//            return nil
-//        }
-//
-//        let rootVC: UIViewController? = {
-//            if let base = base {
-//                return base
-//            }
-//
-//            return UIApplication.shared.connectedScenes
-//                .compactMap { $0 as? UIWindowScene }
-//                .first(where: { $0.activationState == .foregroundActive })?
-//                .windows
-//                .first(where: \.isKeyWindow)?
-//                .rootViewController
-//        }()
-//
-//        if let nav = rootVC as? UINavigationController {
-//            return topViewController(base: nav.visibleViewController)
-//        }
-//
-//        if let tab = rootVC as? UITabBarController, let selected = tab.selectedViewController {
-//            return topViewController(base: selected)
-//        }
-//
-//        if let presented = rootVC?.presentedViewController {
-//            return topViewController(base: presented)
-//        }
-//
-//        return rootVC
-//    }
-//}
-//class YourCustomInAppDelegate: IterableInAppDelegate {
-//    
-//    func onNew(message: IterableInAppMessage) -> InAppShowResponse {
-//        var shouldSkip = false
-//        var email: String = TestData.testData.email
-//        DispatchQueue.main.sync {
-//            if let topVC = UIApplication.shared.topViewController(),
-//               topVC is CheckoutViewController,
-//               let campaignId = message.campaignId?.intValue {
-//                
-//                print("User is on CheckoutViewController - skipping and canceling message")
-//                cancelMessageOnServer(campaignId: campaignId, email: email)
-//                shouldSkip = true
-//            }
-//        }
-//
-//        return shouldSkip ? .skip : .show
-//    }
-//}
-//private func cancelMessageOnServer(campaignId: Int, email: String?) {
-//    guard let email = email,
-//          let url = URL(string: "https://api.iterable.com/api/inApp/cancel") else {
-//        print("Missing email or server URL")
-//        return
-//    }
-//
-//    var request = URLRequest(url: url)
-//    request.httpMethod = "POST"
-//    request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-//
-//    let payload: [String: Any] = [
-//        "campaignId": campaignId,
-//        "email": email
-//    ]
-//
-//    request.httpBody = try? JSONSerialization.data(withJSONObject: payload)
-//
-//    URLSession.shared.dataTask(with: request) { data, response, error in
-//        if let error = error {
-//            print("Error canceling in-app message: \(error)")
-//        } else {
-//            print("Successfully requested cancel for campaignId \(campaignId)")
-//        }
-//    }.resume()
-//}
-//
-//
-////extension AppDelegate: IterableInAppDelegate {
-////
-////    public func onNew(message: IterableInAppMessage) -> InAppShowResponse {
-////
-////        // TODO: This never gets called for those custom json payload in-app messages
-////
-////        if let customPayload = message.customPayload as? [String: Any] {
-////
-////            print("IterableHelper onNew(message):\n\(message)")
-////
-////            return .skip
-////
-////        } else {
-////
-////            return .show
-////
-////        }
-////
-////    }
-////
-////}
-//
-//  AppDelegate.swift
-//  IterableCoffee
-//
-//  Created by Nam Ngo on 10/15/21.
-//
+
 
 import UIKit
 import UserNotifications
@@ -297,49 +11,117 @@ let apiKey = TestData.testData
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
     var window: UIWindow?
+    var pendingLaunchOptions: [UIApplication.LaunchOptionsKey: Any]?
+    private var isIterableInitialized = false
 
     func application(_ application: UIApplication,
                      didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         setupNotifications()
+        
+        // Store launch options for later use
+        pendingLaunchOptions = launchOptions
 
-        let config = IterableConfig()
-        config.inAppDisplayInterval = 10.0
-        config.inAppDelegate = YourCustomInAppDelegate()
-        config.logDelegate = AllLogDelegate()
-        //config.customActionDelegate = self
-        config.urlDelegate = self
-        config.enableEmbeddedMessaging = true
-        config.allowedProtocols = ["reiterablecoffee", "https", "tel", "custom", "action"]
-
-        IterableAPI.initialize(apiKey: apiKey.iterableAPIKey,
-                               launchOptions: launchOptions,
-                               config: config)
+        // Check if project has been selected
+        if UserDefaults.standard.string(forKey: "selectedIterableProject") == nil {
+            // Show prompt to select project
+            showProjectSelectionPrompt()
+        } else {
+            // Initialize Iterable with saved preference
+            initializeIterable(with: launchOptions)
+        }
 
         return true
     }
     
-    // MARK: Deep Links (Universal Links)
-    func application(_ application: UIApplication,
-                     continue userActivity: NSUserActivity,
-                     restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
-        guard let url = userActivity.webpageURL else {
-            return false
+    // MARK: - Project Selection Prompt
+    private func showProjectSelectionPrompt() {
+        // Wait for the window to be ready
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) { [weak self] in
+            guard let self = self else { return }
+            
+            // Try multiple ways to get the root view controller
+            var rootViewController: UIViewController?
+            
+            if let window = self.window {
+                rootViewController = window.rootViewController
+            } else if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                      let window = windowScene.windows.first(where: { $0.isKeyWindow }) {
+                rootViewController = window.rootViewController
+            } else if let window = UIApplication.shared.windows.first(where: { $0.isKeyWindow }) {
+                rootViewController = window.rootViewController
+            }
+            
+            guard let rootVC = rootViewController else {
+                // If window not ready, try again shortly
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self.showProjectSelectionPrompt()
+                }
+                return
+            }
+            
+            let alert = UIAlertController(
+                title: "Select Iterable Project",
+                message: "Choose which Iterable project to use:",
+                preferredStyle: .alert
+            )
+            
+            alert.addAction(UIAlertAction(title: "Email", style: .default) { [weak self] _ in
+                UserDefaults.standard.set("Email", forKey: "selectedIterableProject")
+                self?.initializeIterable(with: self?.pendingLaunchOptions)
+            })
+            
+            alert.addAction(UIAlertAction(title: "Hybrid", style: .default) { [weak self] _ in
+                UserDefaults.standard.set("Hybrid", forKey: "selectedIterableProject")
+                self?.initializeIterable(with: self?.pendingLaunchOptions)
+            })
+            
+            rootVC.present(alert, animated: true)
         }
-        return IterableAPI.handle(universalLink: url)
     }
+    
+    // MARK: - Initialize Iterable SDK
+    private func initializeIterable(with launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        guard !isIterableInitialized else {
+            print("⚠️ Iterable already initialized, skipping...")
+            return
+        }
+        
+        let config = IterableConfig()
+        config.inAppDisplayInterval = 10.0
+        config.inAppDelegate = YourCustomInAppDelegate()
+        config.logDelegate = AllLogDelegate()
+        config.customActionDelegate = self
+        config.urlDelegate = self
+        config.enableEmbeddedMessaging = true
+        config.allowedProtocols = ["reiterablecoffee", "https", "tel", "custom", "action"]
+        
+        let selectedProject = UserDefaults.standard.string(forKey: "selectedIterableProject") ?? "Email"
+        let apiKeyValue = selectedProject == "Hybrid" ? TestData.testData.iterableAPIKeyHybrid : TestData.testData.iterableAPIKeyEmail
+        
+        print("📱 Initializing Iterable with \(selectedProject) project API key")
+        
+        IterableAPI.initialize(apiKey: apiKeyValue,
+                               launchOptions: launchOptions,
+                               config: config)
+        
+        isIterableInitialized = true
+    }
+    
+    // MARK: Deep Links (Universal Links)
+    func application(_: UIApplication, continue userActivity: NSUserActivity, restorationHandler _: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+            guard let url = userActivity.webpageURL else {
+                return false
+            }
+            // ITBL:
+            return IterableAPI.handle(universalLink: url)
+        }
 
     // MARK: URL Delegate (In-App/Inbox Clicks)
     func handle(iterableURL url: URL, inContext context: IterableActionContext) -> Bool {
-        if let topVC = UIApplication.shared.topViewController(),
-           NSStringFromClass(type(of: topVC)).contains("IterableHtmlMessageViewController") {
-            DispatchQueue.main.async {
-                topVC.dismiss(animated: true) {
-                    _ = DeepLinkHandler.handle(url: url)
-                }
-            }
-            return true
-        }
+        print("🔗 Handling Iterable URL: \(url.absoluteString) in context: \(context.source)")
+        
+        // Simple approach like the working version
         return DeepLinkHandler.handle(url: url)
     }
 
@@ -354,6 +136,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate, IterableURLDelegate {
 
     func applicationWillEnterForeground(_ application: UIApplication) {
         setupNotifications()
+    }
+    
+    // MARK: URL Scheme Handling (Fallback)
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        print("🔗 Handling URL scheme: \(url.absoluteString)")
+        print("🔗 URL scheme: \(url.scheme ?? "nil")")
+        print("🔗 URL host: \(url.host ?? "nil")")
+        print("🔗 URL path: \(url.path)")
+        
+        // Handle reiterablecoffee:// scheme
+        if url.scheme == "reiterablecoffee" {
+            return DeepLinkHandler.handle(url: url)
+        }
+        
+        // Handle https://www.reiterablecoffee.com URLs as fallback
+        if url.scheme == "https" && url.host == "www.reiterablecoffee.com" {
+            return DeepLinkHandler.handle(url: url)
+        }
+        
+        return false
     }
 
     // MARK: Remote Notifications
@@ -456,6 +258,29 @@ private func cancelMessageOnServer(campaignId: Int, email: String?) {
             print("Cancelled message for campaign \(campaignId)")
         }
     }.resume()
+}
+
+// MARK: - IterableCustomActionDelegate
+extension AppDelegate: IterableCustomActionDelegate {
+    func handle(iterableCustomAction action: IterableAction, inContext context: IterableActionContext) -> Bool {
+        print("📱 Handling custom action: \(action.type)")
+        
+        // Handle custom actions from push notifications
+        if action.type == "handleFindCoffee" {
+            if let query = action.userInput {
+                // Use the correct URL format for your domain
+                let url = URL(string: "https://www.reiterablecoffee.com/publicmenu/\(query.lowercased())")!
+                return DeepLinkHandler.handle(url: url)
+            }
+        }
+        
+        // Handle any URL-based actions
+        if let urlString = action.userInput, let url = URL(string: urlString) {
+            return DeepLinkHandler.handle(url: url)
+        }
+        
+        return false
+    }
 }
 
 // MARK: - UIApplication Extension

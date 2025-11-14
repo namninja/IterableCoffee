@@ -48,8 +48,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "handle(url:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -96,8 +96,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "48"
             endingLineNumber = "48"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            landmarkName = "extractCoffeeType(from:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -482,6 +482,36 @@
             endingLineNumber = "254"
             landmarkName = "updateEmail(_:withToken:onSuccess:onFailure:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "54DD06A6-13A9-4F2C-86A0-9AA43B69E1B9 - be1b738adfef3c25"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "IterableSDK.InternalIterableAPI.updateEmail(_: Swift.String, withToken: Swift.Optional&lt;Swift.String&gt;, onSuccess: Swift.Optional&lt;(Swift.Optional&lt;Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;&gt;) -&gt; ()&gt;, onFailure: Swift.Optional&lt;(Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Foundation.Data&gt;) -&gt; ()&gt;) -&gt; IterableSDK.Pending&lt;Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;, IterableSDK.SendRequestError&gt;"
+                  moduleName = "IterableCoffee.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nam.ngo/Library/Developer/Xcode/DerivedData/IterableCoffee-hchfpnumonkfmhhgilxzgxdvxezq/SourcePackages/checkouts/swift-sdk/swift-sdk/Internal/InternalIterableAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "254"
+                  endingLineNumber = "254">
+               </Location>
+               <Location
+                  uuid = "54DD06A6-13A9-4F2C-86A0-9AA43B69E1B9 - 9b8844640856977"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;) -&gt; () in IterableSDK.InternalIterableAPI.updateEmail(_: Swift.String, withToken: Swift.Optional&lt;Swift.String&gt;, onSuccess: Swift.Optional&lt;(Swift.Optional&lt;Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;&gt;) -&gt; ()&gt;, onFailure: Swift.Optional&lt;(Swift.Optional&lt;Swift.String&gt;, Swift.Optional&lt;Foundation.Data&gt;) -&gt; ()&gt;) -&gt; IterableSDK.Pending&lt;Swift.Dictionary&lt;Swift.AnyHashable, Any&gt;, IterableSDK.SendRequestError&gt;"
+                  moduleName = "IterableCoffee.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nam.ngo/Library/Developer/Xcode/DerivedData/IterableCoffee-hchfpnumonkfmhhgilxzgxdvxezq/SourcePackages/checkouts/swift-sdk/swift-sdk/Internal/InternalIterableAPI.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "255"
+                  endingLineNumber = "255">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -568,32 +598,64 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "871D7EE6-4FCB-4F19-95F5-495B69034F26"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IterableCoffee/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "334"
-            endingLineNumber = "334"
-            landmarkName = "handle(iterableURL:inContext:)"
-            landmarkType = "7">
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E858782B-FD65-4172-9FC8-2A33718D3EFA"
+            uuid = "CB6DA08C-3494-4069-B2FD-BE21D5BF6500"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IterableCoffee/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1FF03C9A-F576-4E86-BDC8-4215D7EFD4E0"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IterableCoffee/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "324"
-            endingLineNumber = "324"
-            landmarkName = "application(_:continue:restorationHandler:)"
-            landmarkType = "7">
+            startingLineNumber = "72"
+            endingLineNumber = "72"
+            landmarkName = "unknown"
+            landmarkType = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FE873204-2829-4FA5-AF2E-CC61547DE8FB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IterableCoffee/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "unknown"
+            landmarkType = "0">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
